@@ -95,25 +95,26 @@ The goal of this project is to demonstrate how neural networks can learn nonline
 By combining SPINODE with the Lotka–Volterra system, this case study showcases how data-driven neural differential equation methods can infer the underlying physical structure of complex interacting systems.
 
 ### 📂 Repository Structure
-
-Project-SDE-Lotka-Volterra-model/
-│
-├── scripts/
-│   ├── train_spinode.py        # SPINODE model training
-│   ├── utils.py                # Helper functions (metrics, propagation, etc.)
-│   └── plot_results.py         # Visualization of trajectories and learned dynamics
-│
-├── data/
-│   ├── trajectories/           # Stochastic trajectory datasets
-│   └── results/                # Training results
-│
-├── models/
-│   ├── drift_net.py            # Neural network for drift term
-│   ├── diffusion_net.py        # Neural network for diffusion term
-│   └── checkpoint/             # Saved model weights
-│
-├── requirements.txt
-└── README.md
+   ```bash
+   Project-SDE-Lotka-Volterra-model/
+   │
+   ├── scripts/
+   │   ├── train_spinode.py        # SPINODE model training
+   │   ├── utils.py                # Helper functions (metrics, propagation, etc.)
+   │   └── plot_results.py         # Visualization of trajectories and learned dynamics
+   │
+   ├── data/
+   │   ├── trajectories/           # Stochastic trajectory datasets
+   │   └── results/                # Training results
+   │
+   ├── models/
+   │   ├── drift_net.py            # Neural network for drift term
+   │   ├── diffusion_net.py        # Neural network for diffusion term
+   │   └── checkpoint/             # Saved model weights
+   │
+   ├── requirements.txt
+   └── README.md
+   ```
 
 
 ## 🧩 Author
