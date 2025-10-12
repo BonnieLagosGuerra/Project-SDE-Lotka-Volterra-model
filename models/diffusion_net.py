@@ -8,7 +8,7 @@ class DiffusionNet(nn.Module):
     Input: [x1, x2]
     Output: [g2_1, g2_2]  (positive)
     """
-    def __init__(self, hidden_dim=64):
+    def __init__(self, hidden_dim=16):
         super().__init__()
         self.net = nn.Sequential(
             nn.Linear(2, hidden_dim),

@@ -33,9 +33,9 @@ def main():
     diffusion = DiffusionNet()
 
     # Train
-    print("\n=== Training SPINODE on Lotka-Volterra ===")
-    trainer = SPINODETrainer(drift, diffusion, time, means, covs, device="cpu")
-    drift_trained, diffusion_trained = trainer.train(n_epochs=200, batch_size=32, sequential=True)
+    print("\nTraining SPINODE on Lotka-Volterra (in " + ('cuda' if torch.cuda.is_available() else 'cpu') + "):")
+    trainer = SPINODETrainer(drift, diffusion, time, means, covs, device="cuda" if torch.cuda.is_available() else "cpu")
+    drift_trained, diffusion_trained = trainer.train(n_epochs=10, batch_size=16, sequential=True)
 
     # Save models
     torch.save(drift_trained.state_dict(), "models/drift_trained.pt")
@@ -43,7 +43,7 @@ def main():
     print("Models saved in models/")
 
     # Evaluate
-    print("\n=== Evaluating Model Performance ===")
+    print("\nEvaluating Model Performance:")
     evaluate_model()
 
 if __name__ == "__main__":

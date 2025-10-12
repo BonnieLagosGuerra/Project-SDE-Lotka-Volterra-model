@@ -32,20 +32,20 @@ def evaluate_model():
     trainer = SPINODETrainer(drift, diffusion, time, means, covs)
     pred_mean, pred_cov = trainer.predict()
 
-    # === Compute RMSE ===
+    # Compute RMSE
     rmse_mean = rmse(pred_mean, means)
     rmse_cov = rmse(pred_cov, covs)
     print(f"RMSE (Mean): {rmse_mean:.4e}")
     print(f"RMSE (Covariance): {rmse_cov:.4e}")
 
-    # === Compute Validation Error (KL Divergence) ===
+    # Compute Validation Error (KL Divergence)
     kl_vals = []
     for i in range(0, len(time), max(1, len(time)//20)):
         kl = kl_divergence(means[i], covs[i], pred_mean[i], pred_cov[i])
         kl_vals.append(kl)
     print(f"Mean KL Divergence: {np.mean(kl_vals):.4e}")
 
-    # === Visualization ===
+    # Visualization
     fig, ax = plt.subplots(1, 2, figsize=(12, 5))
     ax[0].plot(time, means[:, 0], label="True μ₁")
     ax[0].plot(time, pred_mean[:, 0], '--', label="Pred μ₁")
