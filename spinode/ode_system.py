@@ -30,7 +30,7 @@ class SPINODE_ODE(nn.Module):
         Wm = torch.ones(2 * n + 1) / (2 * (n + lam))
         Wc = Wm.clone()
         Wm[0] = lam / (n + lam)
-        Wc[0] = lam / (n + lam) + (1 - self.alpha**2 + self.beta)
+        Wc[0] = lam / ((n + lam) - (1 - self.alpha**2 + self.beta))
         return sigma_pts, Wm.to(mu.device), Wc.to(mu.device)
 
     def forward(self, t, y):
