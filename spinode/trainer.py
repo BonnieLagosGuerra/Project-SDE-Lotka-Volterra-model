@@ -43,7 +43,7 @@ class SPINODETrainer:
                 ])
                 pred = odeint(
                     self.system, y0, self.time,
-                    method="dopri5", atol=1e-4, rtol=1e-3
+                    method="dopri5", atol=1e-5, rtol=1e-4
                 )
                 loss = self.moment_loss(pred, self.means, self.covs)
                 loss.backward()
@@ -61,7 +61,7 @@ class SPINODETrainer:
             ])
             pred = odeint(
                 self.system, y0, self.time,
-                method="dopri5", atol=1e-4, rtol=1e-3
+                method="dopri5", atol=1e-5, rtol=1e-4
             )
             loss = self.moment_loss(pred, self.means, self.covs)
             loss.backward()
@@ -81,7 +81,7 @@ class SPINODETrainer:
         ])
         pred = odeint(
             self.system, y0, self.time,
-            method="dopri5", atol=1e-4, rtol=1e-3
+            method="dopri5", atol=1e-5, rtol=1e-4
         )
         n = 2
         pred_mean = pred[:, :n].cpu().numpy()

@@ -61,7 +61,9 @@ def evaluate_model():
     ax[1].set_title("Covariance Diagonal vs Time")
     ax[1].legend()
     plt.tight_layout()
-    plt.show()
+    plt.savefig("results/evaluation_plot.png")
+    plt.close()
+
 
     # Optional: kernel density visualization
     try:
@@ -79,7 +81,9 @@ def evaluate_model():
             plt.contourf(xgrid, ygrid, z, levels=30, cmap='viridis')
             plt.title(f"True Density at t={time[idx]:.2f}")
         plt.tight_layout()
-        plt.show()
+        plt.savefig("results/kde_plot.png")
+        plt.close()
+
     except Exception as e:
         print("Skipping KDE plot (requires scipy/sklearn).")
 
