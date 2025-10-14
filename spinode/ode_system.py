@@ -1,6 +1,7 @@
 import torch
 import torch.nn as nn
 import torch.linalg as LA
+from scipy.linalg import sqrtm
 
 class SPINODE_ODE(nn.Module):
     """
@@ -19,10 +20,12 @@ class SPINODE_ODE(nn.Module):
         """Generate sigma points and weights (2n + 1)."""
         n = mu.shape[-1]
         lam = self.alpha**2 * (n + self.kappa) - n
-        U = LA.cholesky((n + lam) * cov)
+        # U = LA.cholesky((n + lam) * cov)
+        U = sqrtm((n + lam) * cov)
         sigma_pts = [mu]
         for i in range(n):
             sigma_pts.append(mu + U[:, i])
+        for i in range(n,2*n):
             sigma_pts.append(mu - U[:, i])
         sigma_pts = torch.stack(sigma_pts)
 
