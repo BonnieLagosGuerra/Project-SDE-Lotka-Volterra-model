@@ -83,15 +83,16 @@ We adapt the data generation pipeline to support GBM and Heston,
 We simplify selected components to make the experiments easier to interpret and replicate.
 
 ### 4. General Framework Structure
+
 #### 4.1 Drift–Diffusion Decomposition
 
 Following the methodology of O’Leary et al., the training pipeline is divided into two complementary phases:
 
-Phase G1 (train_g1)
+- Phase G1 (train_g1)
 
 Learning the deterministic component of the SDE (the drift) using observed trajectories.
 
-Phase G2 (train_g2)
+- Phase G2 (train_g2)
 
 Learning the stochastic component (the diffusion) using the residual increments between the learned drift and the true state transitions.
 
@@ -111,7 +112,9 @@ and when an explicit Euler–Maruyama simulator is available so that the drift a
 
 $$
 \begin{aligned}
-dS_t &= \mu S_t\,dt + \sigma S_t\,dW_t
+
+dS_t &= \mu S_t\,dt + \sigma S_t\,dW_t 
+
 \end{aligned}
 $$​
 
