@@ -46,9 +46,9 @@ The original work introduces a general methodology for training neural models to
 
 In our case, we extend the base example provided in the reference code —the Lotka–Volterra system— and implement two additional experiments based on widely used models in quantitative finance:
 
-Geometric Brownian Motion (GBM)
+- Geometric Brownian Motion (GBM)
 
-Heston Stochastic Volatility Model
+- Heston Stochastic Volatility Model
 
 The goal is to demonstrate that the framework is modular, allowing the underlying dynamical system to be replaced without altering the core training architecture.
 
@@ -108,6 +108,7 @@ and when an explicit Euler–Maruyama simulator is available so that the drift a
 
 ### 5. Implemented Models
 5.1 Geometric Brownian Motion (GBM)
+
 $$
 \begin{aligned}
 dS_t &= \mu S_t\,dt + \sigma S_t\,dW_t
