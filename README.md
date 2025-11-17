@@ -123,13 +123,15 @@ Serves as a baseline for numerical stability and accuracy of the framework.
 Enables direct comparison with the closed-form analytical solution.
 
 ### 5.2 Heston Model
+
 $$
 \begin{aligned}
 dS_t &= \mu S_t\,dt + \sqrt{v_t}\,S_t\,dW_t^{(1)},\\
 dv_t &= \kappa(\theta - v_t)\,dt + \xi\sqrt{v_t}\,dW_t^{(2)}
 \end{aligned}
 $$
-	​
+
+​
 with correlation
 
 $$
